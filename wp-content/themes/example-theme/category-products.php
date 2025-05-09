@@ -24,25 +24,27 @@ get_header();
             $args = ['child_of' => get_queried_object_id()];
             $subcategories = get_categories($args);
 
-            foreach ($subcategories as $subcategory):
+            foreach ($subcategories as $subcategory) :
                 echo '<h2>' . $subcategory->name . '</h2>';
 
                 $args = [
-                    'post_type' => 'post',
                     'cat' => $subcategory->term_id,
-                    'posts_per_page' => 3,
+                    'posts_per_page' => 3
                 ];
 
                 $products = new WP_Query($args);
                 generate_article($products);
                 ?>
                 <article class="product all">
-                    <a href="<?php echo get_category_link($subcategory->term_id); ?>">View all</a>
+                    <a href="<?php echo get_category_link($subcategory->term_id); ?>">Katso kaikki</a>
                 </article>
-            <?php
+                <?php
                 wp_reset_postdata();
             endforeach;
             ?>
+
+
+
         </section>
     </main>
 <?php

@@ -1,10 +1,10 @@
 <aside>
     <section class="search">
-        <?php get_search_form() ?>
+        <?php get_search_form(); ?>
     </section>
     <section class="contact">
-        <h2>Contact Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quos.</p>
-        <a href="#">Contact Us</a>
+        <h2>Ota yhteyttä</h2>
+        <p>Tilaa haluamiasi kirjoja! Tästä vinkkaat meille haluamasi.</p>
+        <a href="#">Ota yhteyttä!</a>
     </section>
 </aside>

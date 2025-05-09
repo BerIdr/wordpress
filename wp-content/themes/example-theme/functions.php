@@ -19,8 +19,7 @@ function theme_setup(): void
     // Add custom image sizes
     add_image_size( 'custom-header', 1200, 400, true ); // Custom header size
 
-    // add search functionality
-    add_theme_support( 'html5', array( 'search-form' ) );
+    add_theme_support('html5', array('search-form'));
 }
 
 add_action( 'after_setup_theme', 'theme_setup' );
@@ -33,8 +32,8 @@ function register_my_menu(): void
 
 add_action( 'after_setup_theme', 'register_my_menu' );
 
-
 // filters
+
 function search_filter($query) {
     if ($query->is_search) {
         $query->set('category_name', 'products');
@@ -42,11 +41,13 @@ function search_filter($query) {
     return $query;
 }
 add_filter('pre_get_posts','search_filter');
-
-function my_breadcrumb_title_swapper( $title,  $type ) {
+// breadcrumb
+function my_breadcrumb_title_swapper( $title,  $type) {
     if ( in_array( 'home', $type ) ) {
         $title = __( 'Home' );
     }
+
     return $title;
 }
 add_filter( 'bcn_breadcrumb_title', 'my_breadcrumb_title_swapper', 3, 10 );
+
